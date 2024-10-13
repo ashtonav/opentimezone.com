@@ -1,0 +1,60 @@
+---
+layout: default
+description: OpenTimezone is an open-source robust solution for enhancing website security.
+---
+
+<section id="overview">
+
+  <h2>What is OpenTimezone?</h2>
+
+  <p>OpenTimezone is an open-source API for handling time zones and conversions.
+
+</section>
+
+<section id="features">
+  <h2>Features:</h2>
+
+  <ul>
+    <li>
+      <strong>Free and Unrestricted:</strong>
+      <p>No cost, no API limits, no API key needed.</p>
+    </li>
+
+    <li>
+      <strong>Easy Time Zone Retrieval:</strong>
+      <p>Retrieve a comprehensive list of all available time zones with ease.</p>
+    </li>
+
+    <li>
+      <strong>Time Conversion:</strong>
+      <p>Effortlessly convert time between different time zones.</p>
+    </li>
+  </ul>
+</section>
+
+<section id="example">
+  <h2>Get started now:</h2>
+  <div class="code-container">
+    {% highlight ini %} curl -X 'POST' \
+    'https://api.opentimezone.com/convert' \
+    -H 'Content-Type: application/json' \
+    -d '{
+    "dateTime": "2024-10-14T00:00:00.000",
+    "fromTimezone": "America/New_York",
+    "toTimezone": "Europe/London"
+    }' {% endhighlight %}
+  </div>
+
+  <p>Just a single line of code? That's right! You've converted time from New York to London.
+    Need further details or want to explore more? Take a look at our complete API documentation on <a
+      href="https://api.opentimezone.com">api.opentimezone.com</a>.</p>
+</section>
+
+<section id="feedback">
+  <h2>Got Ideas? Found Bugs?</h2>
+
+  <p>OpenTimezone values your input — it's open-source for a reason. Spotted a bug? Have an idea? Swing by our
+    <a href="https://github.com/ashtonav/opentimezone/" class="github button">
+      <strong>Project Page on GitHub</strong>
+    </a> and fire up an issue.
+</section>

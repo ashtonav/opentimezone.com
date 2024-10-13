@@ -1,0 +1,346 @@
+/*
+ * HTML5 ✰ Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ *
+ * Detailed information about this CSS: h5bp.com/css
+ *
+ * ==|== normalize ==========================================================
+ */
+
+img { border: 0; }
+
+/* =============================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+
+/* =============================================================================
+   Base
+   ========================================================================== */
+
+/*
+ * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+ * 2. Force vertical scrollbar in non-IE
+ * 3. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
+ */
+
+html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body { margin: 0; font-size: 20px; line-height: 1.231; background-color: #e0efef; font-family: Arial, sans-serif; color: #222; }
+
+footer { margin: 1em; font-size: 0.75em; text-align: center; }
+
+#main { padding: 1em; }
+#main, #sidebar nav { background-color: #fefefe; border: 1px solid #999; border-radius: 0.25em; margin: 1em 0; }
+
+/* Fluid container styles based on Twitter bootstrap */
+.container {
+  position: relative;
+  padding-left: 1.25em;
+  padding-right: 1.25em;
+  zoom: 1;
+  min-width: 40em;
+  max-width: 50em;
+  margin: 0 auto;
+}
+.container:before, .container:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+.container:after {
+  clear: both;
+}
+.container > #sidebar {
+  height: 100vh;
+  overflow: scroll;
+  position: fixed;
+  top: 0;
+  width: 11em;
+}
+.container > #content {
+  margin-left: 12.5em;
+}
+
+section { padding-top: 10px; margin-top: -10px; }
+
+header { text-align: left; padding: 0 1em; height: 4.5em; }
+header h1 { padding-top: 0.5em; }
+
+.editor-logos { padding: 0; margin: 0; }
+.editor-logos li {
+  float: left;
+  list-style: none;
+  width: 20%;
+  height: 20%;
+  padding: 1.25% 2.5%;
+}
+.editor-logos a { outline: none; }
+.editor-logos img { max-width: 100%; max-height: 100%; }
+.editor-logos span { opacity: 0; float: left; white-space: nowrap; margin-top: -3em; }
+
+/* =============================================================================
+   Sidebar customizations
+   ========================================================================== */
+
+#sidebar .logo { float: left; display: block; height: 4.5em; padding: 0.5em 0; text-align: center; width: 100%; }
+#sidebar .logo img { max-height: 4.5em; }
+#sidebar nav { clear: both; padding: 0.5em 1em; }
+#sidebar nav > * { font-size: 0.8em; }
+#sidebar h4 { margin-bottom: 0; padding-bottom: 1em; }
+#sidebar a { text-decoration: none; display: block; color: #000; }
+#sidebar h4 a { color: #000; }
+#sidebar li > ol { margin-top: 0; }
+#sidebar li { list-style: none; padding: 0; }
+#sidebar li > a { color: #666; padding: 0.5em 0.25em; }
+#sidebar li.active > a { color: #000;  }
+#sidebar li:hover > a { background-color: #f0f0ff; color: #000;  }
+@media only screen and (max-width: 850px) {
+  body {
+    font-size: 16px;
+  }
+  .container { padding-left: 0.75em; padding-right: 0.75em; }
+}
+@media only screen and (max-width: 650px) {
+  #sidebar { display: none; }
+  .container {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    min-width: inherit;
+    max-width: 40em;
+  }
+  .container > #content { margin-left: 0; }
+  .editor-logos li { width: 28%; height: 28%; padding: 1.3333% 2.6667%; }
+}
+@media only screen and (max-width: 500px) {
+  body {
+    font-size: 14.5px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  body {
+    font-size: 13px;
+  }
+}
+
+#sidebar .button { background-color: #fefefe; border: 2px outset #999; border-radius: 0.5em; margin: 0.5em 0; padding: 0.1em 0; }
+#sidebar .button:hover { background-color: #ffffff; border-color: #777; }
+#sidebar .button:active { background-color: #fdfdfd; border-style: inset; }
+#sidebar .button img { float: right; margin-right: 0.75em; }
+#sidebar .button strong { float: left; text-align: left; margin: 0.4em 0 0 1em; text-decoration: none; }
+
+#sidebar .github.button img { max-width: 2.3em; }
+#sidebar .github.button strong { max-width: 6.5em; }
+#sidebar .twitter.button img { max-width: 3.3em; }
+#sidebar .twitter.button strong { max-width: 5.0em; }
+
+#sidebar .social-sharing-button {display: inline-block;}
+
+#carbonads {
+  display: flex;
+  margin: 20px auto 0;
+  justify-content: center;
+  border-radius: 0.25em;
+  border: 1px solid #999;
+  padding: 18px 20px;
+  background-color: #fefefe;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#carbonads a {
+  color: #666;
+  text-decoration: none;
+}
+
+#carbonads a:hover {
+  color: #000;
+}
+
+.carbon-img {
+  display: block;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.carbon-img img {
+  display: block;
+  width: 130px;
+  height: auto;
+}
+
+.carbon-text {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.carbon-poweredby {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-weight: 600;
+  font-size: 8px;
+  line-height: 0;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate
+ * Also: hot pink! (or customize the background color to match your design)
+ */
+
+::-moz-selection { background: #2953a6; color: #fff; text-shadow: none; }
+::selection { background: #2953a6; color: #fff; text-shadow: none; }
+
+/* =============================================================================
+   Links
+   ========================================================================== */
+
+a { color: #00e; }
+a:visited { color: #551a8b; }
+a:hover { color: #06e; }
+a:focus { outline: thin dotted; }
+
+/* Improve readability when focused and hovered in all browsers: h5bp.com/h */
+a:hover, a:active { outline: 0; }
+
+/* =============================================================================
+   Typography
+   ========================================================================== */
+
+abbr[title] { border-bottom: 1px dotted; }
+
+b, strong { font-weight: bold; }
+
+p { margin: 0 0 2em 0; }
+
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+
+/* Redeclare monospace font family: h5bp.com/j */
+pre, code, kbd, samp { font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 1em; }
+
+/* Improve readability of pre-formatted text in all browsers */
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+
+/* Apply margins,border,background for sample code */
+.code-container {border-radius: 6px; border: 1px solid #bbb; background-color: #fdf6e3; padding: 0.5em; margin: 1em 1em; }
+
+/* Control text selection highlight area of sample code */
+.code-container .highlight { overflow: hidden; }
+
+q { quotes: '\201C' '\201D'; }
+
+h1, h2, h3, h4 { margin: 0; padding: 0; font-weight: normal; margin: 0 0 0.5em 0; }
+h1 { font-size: 2.370em; }
+h2 { font-size: 1.778em; }
+h3 { font-size: 1.333em; }
+h4 { font-size: 1em; font-variant: small-caps; }
+
+@media only screen and (max-width: 450px) {
+  h1 { font-size: 2.071em; }
+  h2 { font-size: 1.554em; }
+  h3 { font-size: 1.165em; }
+}
+
+/* =============================================================================
+   Lists
+   ========================================================================== */
+
+ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+dd { margin: 0 0 0 40px; }
+nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+
+nav ol { margin-top: 0; }
+
+ul.property-definitions { list-style: none; lyst-style-image: none; margin: 0; padding: 0; }
+ul.property-definitions li { margin: 1em 0 1em 1em; }
+.property-definitions dfn { font-style: normal; font-weight: bold; }
+.property-definitions q { font-family: monospace; }
+.property-definitions q:before { content: open-quote; font-family: sans-serif; }
+.property-definitions q:after { content: close-quote; font-family: sans-serif; }
+
+/* =============================================================================
+   Tables (inspired by Twitter bootstrap styles)
+   ========================================================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  text-align: left;
+}
+table th {
+  font-weight: bold;
+  vertical-align: middle;
+}
+table td {
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+table tbody th {
+  border-top: 1px solid #ddd;
+  vertical-align: top;
+}
+
+/* =============================================================================
+   Pygments highlighting styles
+   Colors based on solarized <http://ethanschoonover.com/solarized>
+   ========================================================================== */
+
+.highlight .c { color: #93a1a1; font-style: italic; } /* Comment */
+.highlight .k { color: #cb4b16; font-weight: bold } /* Keyword (Section Name) */
+.highlight .o { color: #586e75; font-weight: bold } /* Operator (Equals Signs) */
+.highlight .s { color: #2aa198; } /* String Literal (Property Value) */
+.highlight .na { color: #b58900; } /* Name Attribute (Property Name) */
+
+/* ==|== print styles =======================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* h5bp.com/t */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+
+/* =============================================================================
+   Blog posts
+   ========================================================================== */
+
+.post-read-more {
+  font-size: 0.9em;
+}
+
+.post-date {
+  font-size: 0.75em;
+  font-weight: bold;
+}
+
+ul.post-arch {
+  padding-left: 0.5em;
+}
+
+li.post-arch {
+  list-style: none;
+}

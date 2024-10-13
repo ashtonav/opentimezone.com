@@ -1,0 +1,61 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>OpenTimezone{% if page.title %}: {{ page.title }}{% endif %}</title>
+  <meta name="author" content="{% if page.author %}{{ page.author }}{% else %}EditorConfig Team{% endif %}">
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="generator" content="Jekyll v{{ jekyll.version }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/favicon.svg">
+
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/style.css">
+  <link rel="alternate" href="{{ site.baseurl }}/blog/feed.xml" type="application/rss+xml">
+
+</head>
+
+<body>
+<div class="container">
+
+  <div id="sidebar">
+    <div itemscope itemtype="http://schema.org/Organization">
+      <a class="logo" href="{{ site.baseurl }}/"><img itemprop="logo" src="{{ site.baseurl }}/favicon.svg" alt="OpenTimezone logo"></a>
+    </div>
+    <nav>
+    <ol>
+      <li><a href="{{ site.baseurl }}/#overview">What is OpenTimezone?</a></li>
+      <li><a href="{{ site.baseurl }}/#features">Features</a></li>
+      <li><a href="{{ site.baseurl }}/#example">Example</a></li>
+      <li><a href="{{ site.baseurl }}/#feedback">Feedback</a></li>
+    </ol>
+    </nav>
+
+    <a href="https://github.com/ashtonav/opentimezone/" class="github button">
+      <strong>Project Page on GitHub</strong>
+      <img src="{{ site.baseurl }}/github.svg" alt="github logo">
+      <div style="clear: both;"></div>
+    </a>
+  </div>
+
+  <div id="content">
+    <header>
+      <h1>OpenTimezone</h1>
+    </header>
+
+    <div id="main" role="main">
+      {{ content }}
+    </div>
+
+    <footer>
+      OpenTimezone website is based on The EditorConfig website, licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.
+    </footer>
+  </div>
+</div>
+</body>
+</html>

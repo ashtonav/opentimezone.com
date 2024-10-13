@@ -1,0 +1,5 @@
+title: "OpenTimezone"
+description: "OpenTimezone helps developers define and maintain consistent coding styles between different editors and IDEs."
+url: https://opentimezone.com
+permalink: pretty
+exclude: [ 'ReadMe.md' ]
