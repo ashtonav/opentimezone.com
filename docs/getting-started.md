@@ -153,19 +153,16 @@ curl -X 'GET' \
 </details>
 
 <details>
-<summary>Example response shape</summary>
+<summary>Example response</summary>
+
+The response contains all supported time zones. This excerpt shows one item from the live API response.
 
 ```json
 [
   {
     "id": "Europe/London",
-    "displayName": "Europe/London",
+    "displayName": "(UTC+00:00) Europe/London",
     "baseOffset": "00:00:00"
-  },
-  {
-    "id": "America/New_York",
-    "displayName": "America/New_York",
-    "baseOffset": "-05:00:00"
   }
 ]
 ```
@@ -191,12 +188,12 @@ curl -X 'GET' \
 </details>
 
 <details>
-<summary>Example response shape</summary>
+<summary>Example response</summary>
 
 ```json
 {
   "id": "Europe/London",
-  "displayName": "Europe/London",
+  "displayName": "(UTC+00:00) Europe/London",
   "baseOffset": "00:00:00"
 }
 ```
@@ -222,16 +219,34 @@ curl -X 'GET' \
 </details>
 
 <details>
-<summary>Example response shape</summary>
+<summary>Example response</summary>
+
+The response contains all known abbreviation groups. This excerpt shows the first few entries from the live API response.
 
 ```json
 {
   "abbreviations": [
     {
-      "abbreviation": "EST",
-      "utcOffset": "-05:00:00",
+      "abbreviation": "SST",
+      "utcOffset": "-11:00:00",
       "timezoneIds": [
-        "America/New_York"
+        "Pacific/Midway",
+        "Pacific/Pago_Pago"
+      ]
+    },
+    {
+      "abbreviation": "-11",
+      "utcOffset": "-11:00:00",
+      "timezoneIds": [
+        "Pacific/Niue"
+      ]
+    },
+    {
+      "abbreviation": "HST",
+      "utcOffset": "-10:00:00",
+      "timezoneIds": [
+        "America/Adak",
+        "Pacific/Honolulu"
       ]
     }
   ]
@@ -246,7 +261,7 @@ curl -X 'GET' \
 
 Use `/timezones/abbreviations/search` to search for time zones by abbreviation.
 
-The `includeNumeric` query parameter controls whether numeric-style abbreviations(such as `-10:00:00`) are included in the result.
+The `includeNumeric` query parameter controls whether numeric-style abbreviations, such as `-05:00:00`, are included in the result.
 
 [![Try it out](https://img.shields.io/badge/-Try%20it%20out-brightgreen?style=for-the-badge)](https://hoppscotch.io/?method=GET&url=https%3A%2F%2Fapi.opentimezone.com%2Ftimezones%2Fabbreviations%2Fsearch%3Fabbreviation%3DEST%26includeNumeric%3Dtrue)
 
@@ -261,7 +276,7 @@ curl -X 'GET' \
 </details>
 
 <details>
-<summary>Example response shape</summary>
+<summary>Example response</summary>
 
 ```json
 {
@@ -270,7 +285,26 @@ curl -X 'GET' \
       "abbreviation": "EST",
       "utcOffset": "-05:00:00",
       "timezoneIds": [
-        "America/New_York"
+        "America/Atikokan",
+        "America/Cancun",
+        "America/Cayman",
+        "America/Detroit",
+        "America/Grand_Turk",
+        "America/Indiana/Indianapolis",
+        "America/Indiana/Marengo",
+        "America/Indiana/Petersburg",
+        "America/Indiana/Vevay",
+        "America/Indiana/Vincennes",
+        "America/Indiana/Winamac",
+        "America/Iqaluit",
+        "America/Jamaica",
+        "America/Kentucky/Louisville",
+        "America/Kentucky/Monticello",
+        "America/Nassau",
+        "America/New_York",
+        "America/Panama",
+        "America/Port-au-Prince",
+        "America/Toronto"
       ]
     }
   ]
@@ -278,86 +312,5 @@ curl -X 'GET' \
 ```
 
 </details>
-
----
-
-## Step 8: Understand the request parameters
-
-The `/convert` endpoint accepts three main fields.
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| **`dateTime`** | `string` | **Yes** | The date/time you want to convert. Use an ISO 8601-style value, for example `2026-06-15T03:02:22.1771394`. |
-| **`fromTimezone`** | `string` | **Yes** | The source time zone. Use `UTC` or an IANA time zone ID such as `America/New_York`. |
-| **`toTimezone`** | `string` | **Yes** | The target time zone. Use `UTC` or an IANA time zone ID such as `Europe/London`. |
-
-### Example request body
-
-```json
-{
-  "dateTime": "2026-06-15T03:02:22.1771394",
-  "fromTimezone": "UTC",
-  "toTimezone": "America/New_York"
-}
-```
-
-### Notes
-
-- Use `/timezones` to discover supported time zone identifiers.
-- Daylight saving time rules are handled automatically based on the supplied date and time zone.
-
----
-
-## Step 9: Understand the responses
-
-### Successful conversion response
-
-When a conversion succeeds, OpenTimezone returns a JSON object containing the converted `dateTime`.
-
-| HTTP Status | Description |
-|------------:|-------------|
-| **200 OK** | The conversion was successful. |
-
-```json
-{
-  "dateTime": "2026-06-14T23:02:22.1771394"
-}
-```
-
-### Bad request response
-
-If the request is invalid, OpenTimezone returns a `400 Bad Request`.
-
-This can happen if required fields are missing, the date/time is malformed, or the supplied time zone cannot be used for conversion.
-
-| HTTP Status | Description |
-|------------:|-------------|
-| **400 Bad Request** | The conversion request is invalid. |
-
-```json
-{
-  "type": "ValidationError",
-  "message": "The request is invalid.",
-  "stackTrace": null
-}
-```
-
-### Not found response
-
-Some lookup endpoints may return `404 Not Found` when the requested time zone or abbreviation cannot be found.
-
-| HTTP Status | Description |
-|------------:|-------------|
-| **404 Not Found** | The requested time zone or abbreviation was not found. |
-
-```json
-{
-  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
-  "title": "Not Found",
-  "status": 404,
-  "detail": "The requested resource was not found.",
-  "instance": null
-}
-```
 
 ---

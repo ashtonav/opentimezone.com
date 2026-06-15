@@ -1,0 +1,21 @@
+@startuml
+title OpenTimezone request flow
+
+skinparam shadowing false
+skinparam responseMessageBelowArrow true
+
+actor "API Client\napp, website, script" as Client
+participant "OpenTimezone API\nPOST /convert" as Api
+participant "Conversion Logic\nTimezone.Core" as Core
+participant ".NET TimeZoneInfo" as TimeZoneInfo
+database "Linux tzdata" as TzData
+
+Client -> Api : Send JSON request\n{ dateTime, fromTimezone, toTimezone }
+Api -> Core : Validate and process request
+Core -> TimeZoneInfo : Resolve and convert time zones
+TimeZoneInfo -> TzData : Read time zone rules
+TzData --> TimeZoneInfo : Offsets and DST rules
+TimeZoneInfo --> Core : Converted Date/Time
+Core --> Api : Converted Date/Time
+Api --> Client : JSON response\n{ dateTime }
+@enduml
