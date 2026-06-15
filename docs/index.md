@@ -7,6 +7,7 @@ sidebar_position: 0
 <img src="/img/favicon.svg" alt="Description" width="105"></img>
 
 OpenTimezone is an open source, free, public API that converts time between different time zones.
+<img src="/img/diagram.svg" alt="How does OpenTimezone work"></img>
 
 ## Features
 
